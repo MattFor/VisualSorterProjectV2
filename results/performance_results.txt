@@ -1,0 +1,51 @@
+Algorithm,TestType,ArraySize,Duration_ms
+Bubble Sort,Mixed,5000,1342.89
+Bubble Sort,All Negative,5000,1338.35
+Bubble Sort,All Positive,5000,1384.46
+Bubble Sort,Already Sorted,5000,0.6338
+Bubble Sort,Reverse Sorted,5000,0.7278
+Cocktail Sort,Mixed,5000,1395.37
+Cocktail Sort,All Negative,5000,1307.45
+Cocktail Sort,All Positive,5000,1640.25
+Cocktail Sort,Already Sorted,5000,1.2022
+Cocktail Sort,Reverse Sorted,5000,1.2438
+Gnome Sort,Mixed,5000,1328.71
+Gnome Sort,All Negative,5000,1400.6
+Gnome Sort,All Positive,5000,1395.09
+Gnome Sort,Already Sorted,5000,0.5539
+Gnome Sort,Reverse Sorted,5000,0.5652
+Heap Sort,Mixed,5000,2.802
+Heap Sort,All Negative,5000,2.7892
+Heap Sort,All Positive,5000,2.9151
+Heap Sort,Already Sorted,5000,0.8075
+Heap Sort,Reverse Sorted,5000,0.8575
+Insertion Sort,Mixed,5000,675.825
+Insertion Sort,All Negative,5000,664.113
+Insertion Sort,All Positive,5000,664.771
+Insertion Sort,Already Sorted,5000,0.4918
+Insertion Sort,Reverse Sorted,5000,0.7294
+Selection Sort,Mixed,5000,1582.34
+Selection Sort,All Negative,5000,1228.71
+Selection Sort,All Positive,5000,1252.51
+Selection Sort,Already Sorted,5000,1295.49
+Selection Sort,Reverse Sorted,5000,1296.04
+Shell Sort,Mixed,5000,16.8938
+Shell Sort,All Negative,5000,18.1735
+Shell Sort,All Positive,5000,17.1038
+Shell Sort,Already Sorted,5000,7.6311
+Shell Sort,Reverse Sorted,5000,7.9144
+Timsort,Mixed,5000,4.0154
+Timsort,All Negative,5000,3.9083
+Timsort,All Positive,5000,4.0528
+Timsort,Already Sorted,5000,0.0626
+Timsort,Reverse Sorted,5000,0.0502
+Radix LSD Bucket Sort,Mixed,5000,1.2909
+Radix LSD Bucket Sort,All Negative,5000,1.3096
+Radix LSD Bucket Sort,All Positive,5000,1.3501
+Radix LSD Bucket Sort,Already Sorted,5000,0.6348
+Radix LSD Bucket Sort,Reverse Sorted,5000,0.6321
+Quicksort,Mixed,5000,11.1219
+Quicksort,All Negative,5000,11.4293
+Quicksort,All Positive,5000,13.0281
+Quicksort,Already Sorted,5000,0.0498
+Quicksort,Reverse Sorted,5000,0.0453
