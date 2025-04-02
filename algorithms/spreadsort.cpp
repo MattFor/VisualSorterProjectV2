@@ -30,7 +30,7 @@ bool spreadsort_step(std::vector<Value>& values, int &arrayAccesses, int &compar
     static size_t merge_bucket_index = 0;       // For merging buckets back
 
     const size_t n = values.size();
-    if(n < 2)
+    if (n < 2)
     {
         phase = RESET;
         return true;
@@ -48,25 +48,35 @@ bool spreadsort_step(std::vector<Value>& values, int &arrayAccesses, int &compar
         for (size_t i = 1; i < n; i++)
         {
             const int v = values[i].getValue();
+            arrayAccesses++;  // access for values[i]
+
+            comparisons++;
             if (previousValue > v)
             {
                 hasEncounteredUnsorted = true;
             }
-            comparisons++;
-            arrayAccesses++;  // access for values[i]
+
             comparisons++;    // compare v with global_min
-            if(v < global_min)
+            if (v < global_min)
+            {
                 global_min = v;
+            }
+
             comparisons++;    // compare v with global_max
-            if(v > global_max)
+            if (v > global_max)
+            {
                 global_max = v;
+            }
+
             previousValue = v;
         }
+
         if (!hasEncounteredUnsorted)
         {
             phase = RESET_FINAL;
             return false;
         }
+
         buckets.clear();
         buckets.resize(bucket_count);
         distribution_index = 0;
@@ -75,34 +85,36 @@ bool spreadsort_step(std::vector<Value>& values, int &arrayAccesses, int &compar
     }
 
     // ----- DISTRIBUTE Phase: Place each value into a bucket -----
-    if(phase == DISTRIBUTE)
+    if (phase == DISTRIBUTE)
     {
-        if(distribution_index < n)
+        if (distribution_index < n)
         {
             const int v = values[distribution_index].getValue();
             arrayAccesses++;  // access for values[distribution_index]
+
             int bucket_idx = 0;
-            if(global_max != global_min)
+            if (global_max != global_min)
             {
                 bucket_idx = (v - global_min) * bucket_count / (global_max - global_min + 1);
                 comparisons++; // for bounds-checking
                 if(bucket_idx >= bucket_count)
                     bucket_idx = bucket_count - 1;
             }
+
             buckets[bucket_idx].push_back(values[distribution_index]);
             distribution_index++;
             return false;
         }
-        // Distribution complete: Prepare to sort each bucket.
+        // Distribution completes: Prepare to sort each bucket.
         current_bucket = 0;
-        bucket_sort_index = 1;   // start from second element in each bucket
+        bucket_sort_index = 1;   // start from the second element in each bucket
         innerIndex = bucket_sort_index;
         phase = SORT_BUCKETS;
         return false;
     }
 
     // ----- SORT_BUCKETS Phase: Incremental insertion sort in each bucket -----
-    if(phase == SORT_BUCKETS)
+    if (phase == SORT_BUCKETS)
     {
         // Process buckets one by one.
         while (current_bucket < static_cast<int>(buckets.size()))

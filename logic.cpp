@@ -109,10 +109,10 @@ std::unordered_map<ALGORITHM, SortConfig> algoConfig{
         { ALGORITHM::INSERTION, SortConfig{ insertion_sort_step,           0.01f    } },
         { ALGORITHM::SELECTION, SortConfig{ selection_sort_step,           0.00001f } },
         { ALGORITHM::SHELL,     SortConfig{ shell_sort_step,               0.001f   } },
-        { ALGORITHM::TIMSORT,   SortConfig{ timsort_step,                  0.5f     } }, // SUPER FAST
+        { ALGORITHM::TIMSORT,   SortConfig{ timsort_step,                  0.5f     } },
         { ALGORITHM::RADIX,     SortConfig{ radix_lsd_bucket_sort_step,    1.5f     } },
         { ALGORITHM::QUICKSORT, SortConfig{ quicksort_step,                0.01f    } },
-        { ALGORITHM::SPREADSORT,SortConfig{ spreadsort_step,               0.0f     } }  // TODO: FIX - experimental
+        { ALGORITHM::SPREADSORT,SortConfig{ spreadsort_step,               0.01f    } }
 };
 
 // Create a wrapper function so that we can use the previously created hashmap to assign all functions when needed

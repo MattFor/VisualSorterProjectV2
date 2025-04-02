@@ -52,7 +52,7 @@ int main()
         const bool multiTesting = settings.multipleTests == "y" || settings.multipleTests == "Y";
         if (multiTesting)
         {
-            sizes = {10, 50, 100, 300, 750, 1000, 3000, 4500, 6000, 7000, 8000, 9000, 10000, 15000, 20000, 30000, 40000, 200000, 500000, 1000000};
+            sizes = {10, 50, 100, 300, 750, 1000, 3000, 4500, 6000, 7000, 8000, 9000, 10000}; //, 15000, 20000, 30000, 40000, 200000, 500000, 1000000};
         }
         else
         {
@@ -409,7 +409,7 @@ int main()
             }
             else if (mode == MODE::RANDOMIZING)
             {
-                currentDelay = settings.delaySeconds > 0.1 ? settings.delaySeconds * 1000 : static_cast<float>(values.size()) / 100;
+                currentDelay = /* settings.delaySeconds > 0.1 ? settings.delaySeconds * 1000 : */ static_cast<float>(values.size()) / 100;
 
                 std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(currentDelay)));
 
